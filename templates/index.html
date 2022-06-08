@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <!--From https://codepen.io/frytyler/pen/EGdtg-->
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flower Class Prediction</title>
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="container contact-form">
+      <div class="contact-image">
+        <img
+          src="{{ url_for('static', filename='img/sunflower.png') }}"
+          alt="rocket_contact"
+        />
+      </div>
+      <form action="{{ url_for('predict')}}" method="post">
+        <h3>Flower Class Prediction</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input
+                type="text"
+                name="Sepal_Length"
+                class="form-control"
+                placeholder="Sepal_Length"
+                required="required"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                name="Sepal_Width"
+                class="form-control"
+                placeholder="Sepal_Width"
+                required="required"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                name="Petal_Length"
+                class="form-control"
+                placeholder="Petal_Length"
+                required="required"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                name="Petal_Width"
+                class="form-control"
+                placeholder="Petal_Width"
+                required="required"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-large">
+              Predict
+            </button>
+          </div>
+          <div class="col-md-6">
+            <h3>
+              Hasil Prediksi : <br />
+              {{ prediction_text }}
+            </h3>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </body>
+</html>
